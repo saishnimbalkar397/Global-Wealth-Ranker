@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global Wealth Ranker</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-inner">
+            <svg class="nav-logo" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="16" fill="#F05A28" />
+                <ellipse cx="16" cy="10.5" rx="7.5" ry="2.8" fill="white" opacity="0.95" />
+                <path d="M8.5 10.5v4c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8v-4" stroke="white" stroke-width="1.4"
+                    fill="none" />
+                <path d="M8.5 14.5v4c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8v-4" stroke="white" stroke-width="1.4"
+                    fill="none" />
+            </svg>
+            <span class="nav-brand">Global Wealth Ranker</span>
+        </div>
+    </nav>
+
+    <main class="page-grid">
+
+        <div class="left-col">
+
+            <section class="hero">
+                <h1 class="hero-title">
+                    How Rich Are You Compared to the Rest of the World?
+                </h1>
+                <p class="hero-subtitle">
+                    Discover your position in the global income distribution.
+                    Compare your wealth against billions of others using verified
+                    real-time datasets.
+                </p>
+            </section>
+
+        </div>
+
+        <div class="right-col">
+
+            <div class="input-card">
+                <h3 class="card-heading">Calculate Your Rank</h3>
+
+                <div class="form-group">
+                    <label for="country">Select Your Country</label>
+                    <div class="select-wrapper">
+                        <select id="country">
+                            <option value="">Select country</option>
+                            <option value="India">India</option>
+                            <option value="USA">USA</option>
+                            <option value="Germany">Germany</option>
+                            <option value="UK">UK</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="China">China</option>
+                            <option value="South Africa">South Africa</option>
+                        </select>
+                        <svg class="chevron" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 6l4 4 4-4" stroke="#888" stroke-width="1.6" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="income">Annual Household Income (USD)</label>
+                    <div class="input-wrapper">
+                        <svg class="field-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="5" width="16" height="11" rx="2" stroke="#AAAAAA" stroke-width="1.4" />
+                            <path d="M2 9h16" stroke="#AAAAAA" stroke-width="1.4" />
+                            <circle cx="14.5" cy="12.5" r="1" fill="#AAAAAA" />
+                        </svg>
+                        <input type="number" id="income" placeholder="50,000" min="0" />
+                    </div>
+                </div>
+
+                <button class="btn-calculate" onclick="calculate()">
+                    Calculate My Rank &nbsp;↗
+                </button>
+
+                <p class="disclaimer">
+                    We don't store your personal financial data. All calculations are anonymous.
+                </p>
+            </div>
+
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p>Calculating your rank…</p>
+            </div>
+
+            <div class="results-section" id="results-section" style="display:none;">
+
+                <div class="results-grid">
+
+                    <div class="stat-card" id="card-global">
+                        <div class="stat-icon-wrap orange">🌍</div>
+                        <div class="stat-label">Global Ranking</div>
+                        <div class="stat-value" id="global-rank">—</div>
+                        <div class="stat-sub" id="global-sub"></div>
+                    </div>
+
+                    <div class="stat-card" id="card-country">
+                        <div class="stat-icon-wrap blue">🏠</div>
+                        <div class="stat-label">Country Ranking</div>
+                        <div class="stat-value" id="country-rank">—</div>
+                        <div class="stat-sub" id="country-sub"></div>
+                    </div>
+
+                    <div class="stat-card" id="card-lifestyle">
+                        <div class="stat-icon-wrap green">✨</div>
+                        <div class="stat-label">Lifestyle Class</div>
+                        <div class="stat-value" id="lifestyle-val">—</div>
+                        <div class="stat-sub" id="lifestyle-sub"></div>
+                    </div>
+
+                    <div class="stat-card" id="card-power">
+                        <div class="stat-icon-wrap orange">💡</div>
+                        <div class="stat-label">Purchasing Power</div>
+                        <div class="stat-value" id="power-val">—</div>
+                        <div class="stat-sub" id="power-sub"></div>
+                    </div>
+
+                </div>
+
+                <div class="result-block">
+                    <h3 class="block-title">Your Wealth Story</h3>
+                    <div id="story-text" class="story-body"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
